@@ -1,76 +1,79 @@
 #
-def GetEmpName():
-    empname = input("Enter employee name: ")
-    return empname
+def Get_Emp_Name():
+    emp_name = input('Enter employee name: ')
+    return emp_name
 #write the GetHoursWorked function
-def GetHoursWorked():
-    hoursworked = float(input("Enter hoursworked: "))
-    return hoursworked
+def Get_Hours_Worked():
+    hours_worked = float(input('Enter hours worked:  '))
+    return hours_worked
 
 #write the GetHourlyRate function
-def GetHourlyRate():
-    hourlyrate = float(input("Enter hourly rate: "))
-    return hourlyrate
+def Get_Hourly_Rate():
+    hourly_rate = float(input('Enter hourly rate:  '))
+    return hourly_rate
 
 
 # write the GetTaxRate function
-def GetTaxRate():
-    taxrate = float(input("Enter the tax rate: "))
-    return taxrate
+def Get_Tax_Rate():
+    tax_rate = float(input('Enter the tax rate:  '))
+    return tax_rate
 
 
-def CalcTaxAndNetPay(hoursworked, hourlyrate, taxrate):
-    grosspay = GetHoursWorked() * GetHourlyRate()
-    incometax = grosspay * GetTaxRate()
-    netpay = grosspay - incometax
-    return grosspay, incometax, netpay
+def Calc_Tax_And_Net_Pay(hours_worked, hourly_rate, tax_rate):
+    gross_pay = Get_Hours_Worked() * Get_Hourly_Rate()
+    income_tax = gross_pay * Get_Tax_Rate()
+    net_pay = gross_pay - income_tax
+    return gross_pay, income_tax, net_pay
 
-def printinfo(empname, hours, hourlyrate, grosspay, taxrate, incometax, netpay):
-    print(empname, f'{hours:,.2f}', f'{hourlyrate:,.2f}', f'{grosspay:,.2f}', f'{taxrate:,.1%}', f'{incometax:,.2f}', f'{netpay:,.2f}')
+def print_info(emp_name, hours_worked, hourly_rate, gross_pay, tax_rate, income_tax, net_pay):
+    print(emp_name, f"{hours_worked:,.2f}", f"{hourly_rate:,.2f}", f"{gross_pay:,.2f}", f"{tax_rate:,.1%}", f"{income_tax:,.2}", f"{net_pay:,.2f}")
 
-def PrintTotals(TotEmployees, TotHours, TotGrossPay, TotTax, TotNetPay):    
+def Print_Totals(Tot_Employees, Tot_Hours, Tot_Gross_Pay, Tot_Tax, Tot_Net_Pay):    
     print()
-    print(f"Total Number Of Employees: {TotEmployees}")
-    # write the code to print TotHours, TotGrossPay, TotTax, and TotNetpay with 2 decimal places
-    print(f"{TotHours:.2f}", f"{TotGrossPay:.2f}", f"{TotTax:.2f}", f"{TotNetPay:.2f}")
+    print(f"Total Number Of Employees: {Tot_Employees}")
+    # write the code to print TotHours, TotGrossPay, TotTax, and TotNetpay with 2 decimal place
+    print(f"Total hours worked: {Tot_Hours:,.2f}")
+    print(f"Total Gross Pay: {Tot_Gross_Pay:,.2f}") 
+    print(f"Total Tax Paid: {Tot_Tax:,.2f}") 
+    print(f"Total Net Pay: {Tot_Net_Pay:,.2f}")
 
 
 if __name__ == "__main__":
-    TotEmployees = 0
-    TotHours = 0.00
-    TotGrossPay = 0.00
-    TotTax = 0.00
-    TotNetPay = 0.00
+    Tot_Employees = 0
+    Tot_Hours = 0.00
+    Tot_Gross_Pay = 0.00
+    Tot_Tax = 0.00
+    Tot_Net_Pay = 0.00
     while True:
-        empname = GetEmpName()
-        if (empname.upper() == "END"):
+        emp_name = Get_Emp_Name()
+        if (emp_name.upper() == "END"):
             break
         # write the code to assign to hours the return value from GetHoursWorked
-        hoursworked = GetHoursWorked()
-        if (hoursworked == "END"):
+        hours_worked = Get_Hours_Worked()
+        if (hours_worked == "END"):
             break
         # write the code to assign to hourlyrate the return value from GetHourlyRate
-        hourlyrate = GetHourlyRate
-        if (hourlyrate == "END"):
+        hourly_rate = Get_Hourly_Rate
+        if (hourly_rate == "END"):
             break
 
         # write the code to assign to taxrate the return value from GetTaxRate
-        taxrate = GetTaxRate
-        if (taxrate == "END"):
+        tax_rate = Get_Tax_Rate
+        if (tax_rate == "END"):
             break
         
-        grosspay, incometax, netpay = CalcTaxAndNetPay(hoursworked, hourlyrate, taxrate)
-        printinfo(empname, hoursworked, hourlyrate, grosspay, taxrate, incometax, netpay)
-        TotEmployees += 1
+        gross_pay, income_tax, net_pay = Calc_Tax_And_Net_Pay(hours_worked, hourly_rate, tax_rate)
+        print_info(emp_name, hours_worked, hourly_rate, gross_pay, tax_rate, income_tax, net_pay)
+        Tot_Employees += 1
         # write the code to increment the other total variables with the appropriate values
-        TotHours += 1
-        TotGrossPay += 1
-        TotTax += 1
-        TotNetPay += 1
+        Tot_Hours += 1
+        Tot_Gross_Pay += 1
+        Tot_Tax += 1
+        Tot_Net_Pay += 1
 
 
 
-    PrintTotals (TotEmployees, TotHours, TotGrossPay, TotTax, TotNetPay)
+    Print_Totals (Tot_Employees, Tot_Hours, Tot_Gross_Pay, Tot_Tax, Tot_Net_Pay)
 
 
 
